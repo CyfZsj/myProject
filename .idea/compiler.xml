@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="module-user" />
+        <module name="mybatis-gen" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cyf-module" target="1.8" />
+      <module name="module-user" target="1.8" />
+      <module name="mybatis-gen" target="1.8" />
+      <module name="myProject" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cyf-module" options="" />
+      <module name="module-user" options="-parameters" />
+      <module name="mybatis-gen" options="-parameters" />
+    </option>
+  </component>
+</project>

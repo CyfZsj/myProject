@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <dependencies>
+        <dependency>
+            <groupId>com.cyf</groupId>
+            <artifactId>module-user</artifactId>
+            <version>1</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.6.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.cyf</groupId>
+    <artifactId>myProject</artifactId>
+    <version>1</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>mybatis-gen</module>
+        <module>module-user</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+        <javax.validation>2.0.1.Final</javax.validation>
+        <!--docker仓库地址-->
+        <!--生产环境-->
+<!--        <docker.repository>registry.cn-hangzhou.aliyuncs.com</docker.repository>-->
+<!--        <docker.auth>docker-aliyun-yiding</docker.auth>-->
+        <!--办公室测试环境-->
+        <!--        <docker.repository>192.168.3.202:8080</docker.repository>-->
+        <!--        <docker.auth>docker-harbor-yiding</docker.auth>-->
+        <!--docker命名空间-->
+<!--        <docker.registry.name>cloud-micro</docker.registry.name>-->
+
+        <lombok.version>1.18.8</lombok.version>
+        <okhttp.version>10.1.0</okhttp.version>
+        <fastjson.version>1.2.55</fastjson.version>
+
+        <sharding-sphere.version>3.0.0</sharding-sphere.version>
+        <mysql.jdbc.version>5.1.48</mysql.jdbc.version>
+        <mybatis-plus.version>3.1.0</mybatis-plus.version>
+        <velocity.version>2.0</velocity.version>
+        <aliyun-java-sdk-rds.version>2.3.9</aliyun-java-sdk-rds.version>
+        <aliyun-java-sdk-core.version>4.4.2</aliyun-java-sdk-core.version>
+        <hutool.version>4.6.1</hutool.version>
+        <poi.version>3.17</poi.version>
+        <validation.version>2.0.1.Final</validation.version>
+        <netty.version>4.1.25.Final</netty.version>
+        <qiniu.version>[7.2.0, 7.2.99]</qiniu.version>
+        <docker.maven.version>1.1.1</docker.maven.version>
+        <pinyin4j.version>2.5.1</pinyin4j.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.2.3</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.sql</include>
+                    <include>**/*.html</include>
+                    <include>**/*.css</include>
+                    <include>**/*.js</include>
+                </includes>
+                <!--                <filtering>true</filtering>-->
+            </resource>
+        </resources>
+        <!-- 配置插件 -->
+        <plugins>
+            <!-- 资源文件拷贝插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <!--                    <delimiters>@</delimiters>-->
+                    <useDefaultDelimiters>false</useDefaultDelimiters>
+                </configuration>
+            </plugin>
+            <!-- java编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
